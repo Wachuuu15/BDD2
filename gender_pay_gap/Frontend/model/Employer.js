@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const newObjectId = new mongoose.ObjectId();
 
 const employerSchema = new mongoose.Schema({
+    _id: newObjectId,
     employerName: String,
     address: String,
     postcode: String,
@@ -24,7 +26,9 @@ const employerSchema = new mongoose.Schema({
     currentName: String,
     submittedAfterTheDeadline: Boolean,
     company_id: Number
-},{versionKey:false})
+})
 
 const Employer = mongoose.model('Employer', employerSchema, 'Employer');
 module.exports = Employer;
+
+

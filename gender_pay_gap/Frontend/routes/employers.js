@@ -3,6 +3,5 @@ const router = express.Router();
 const employerController = require('../controllers/EmployerController');
 
 // Ruta
-router.get('/', employerController.mostrar);
-
+router.get('/info', employerController.mostrar);
 module.exports = router;

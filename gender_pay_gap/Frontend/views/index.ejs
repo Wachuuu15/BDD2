@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/gender_pay_gap/Frontend/public/css/style.css">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">GOV.UK</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                <a class="nav-link" href="/">Register<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/info">Employers Info</a>
+                    </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Report</a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+    <title>GPG</title>
+    <style>
+        .container{
+            max-width: 960px;
+        }
+    </style>
+  </head>
+  <body>
+        <div class="container">
+            <div class="container-title-info"></div>
+                <h1>Customs gender pay gap report</h1>
+                <h4>Register Employer</h4>
+                <form action="/crear" method="POST">
+                    <div class="col-md-6">
+                        <label for="employerName" class="form-label">Employer Name</label>
+                        <input id="employerName" name="employerName" type="text" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="address" class="form-label">Address</label>
+                        <input id="address" name="address" type="text" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="postcode" class="form-label">Post code</label>
+                        <input id="postcode" name="postcode" type="text" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="percentDifferenceInMeanHourlyWage" class="form-label">dif % In Mean Hourly Wage</label>
+                        <input id="percentDifferenceInMeanHourlyWage" name="percentDifferenceInMeanHourlyWage" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="percentDifferenceInMedianHourlyWage" class="form-label">dif % In Median Hourly Wage</label>
+                        <input id="percentDifferenceInMedianHourlyWage" name="percentDifferenceInMedianHourlyWage" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="percentDifferenceInMeanBonusReceived" class="form-label">dif % In Mean Bonus Received</label>
+                        <input id="percentDifferenceInMeanBonusReceived" name="percentDifferenceInMeanBonusReceived" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="percentDifferenceInMedianBonusReceived" class="form-label">dif % In Median Bonus Received</label>
+                        <input id="percentDifferenceInMedianBonusReceived" name="percentDifferenceInMedianBonusReceived" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="percentageOfMalesThatReceivedABonus" class="form-label">% Males Received Bonus</label>
+                        <input id="percentageOfMalesThatReceivedABonus" name="percentageOfMalesThatReceivedABonus" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="percentageOfFemalesThatReceivedABonus" class="form-label">% Females Received Bonus</label>
+                        <input id="percentageOfFemalesThatReceivedABonus" name="percentageOfFemalesThatReceivedABonus" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="proportionOfMalesInLowerQuartile" class="form-label">Proportion Males In Lower Quartile</label>
+                        <input id="proportionOfMalesInLowerQuartile" name="proportionOfMalesInLowerQuartile" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="proportionOfFemalesInLowerQuartile" class="form-label">Proportion Females In Lower Quartile</label>
+                        <input id="proportionOfFemalesInLowerQuartile" name="proportionOfFemalesInLowerQuartile" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="proportionOfMalesInLowerMiddleQuartile" class="form-label">Proportion Males In Lower Middle Quartile</label>
+                        <input id="proportionOfMalesInLowerMiddleQuartile" name="proportionOfMalesInLowerMiddleQuartile" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="proportionOfFemalesInLowerMiddleQuartile" class="form-label">Proportion Females In Lower Middle Quartile</label>
+                        <input id="proportionOfFemalesInLowerMiddleQuartile" name="proportionOfFemalesInLowerMiddleQuartile" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="proportionOfMalesInUpperMiddleQuartile" class="form-label">Proportion Males In Upper Middle Quartile</label>
+                        <input id="proportionOfMalesInUpperMiddleQuartile" name="proportionOfMalesInUpperMiddleQuartile" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="proportionOfFemalesInUpperMiddleQuartile" class="form-label">Proportion Females In Upper Middle Quartile</label>
+                        <input id="proportionOfFemalesInUpperMiddleQuartile" name="proportionOfFemalesInUpperMiddleQuartile" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="proportionOfMalesInTopQuartile" class="form-label">Proportion Males In Top Quartile</label>
+                        <input id="proportionOfMalesInTopQuartile" name="proportionOfMalesInTopQuartile" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="proportionOfFemalesInTopQuartile" class="form-label">Proportion Females In Top Quartile</label>
+                        <input id="proportionOfFemalesInTopQuartile" name="proportionOfFemalesInTopQuartile" type="number" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="companyLinkToGPGInfo" class="form-label">Link to Company GPG</label>
+                        <input id="companyLinkToGPGInfo" name="companyLinkToGPGInfo" type="text" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="responsiblePerson" class="form-label">Responsible Person</label>
+                        <input id="responsiblePerson" name="responsiblePerson" type="text" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="employerSize" class="form-label">Employer size</label>
+                        <input id="employerSize" name="employerSize" type="text" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="currentName" class="form-label">Current Name</label>
+                        <input id="currentName" name="currentName" type="text" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="submittedAfterTheDeadline" class="form-label">Submitted After The Deadline</label>
+                        <input id="submittedAfterTheDeadline" name="submittedAfterTheDeadline" type="text" class="form-control" required>    
+                    </div>
+                    <div class="col-md-6">
+                        <label for="company_id" class="form-label">Company ID</label>
+                        <input id="company_id" name="company_id" type="number" class="form-control" required>    
+                    </div>
+                    <button type="submit" class="btn-save"><i class="bi bi-save"></i>Register Employer</button>
+                </form>
+            </div>
+        </div>
+  </body>
+</html>

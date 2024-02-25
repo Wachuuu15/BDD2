@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/gender_pay_gap/Frontend/public/css/style.css">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">GOV.UK</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+            <a class="nav-link" href="/">Register<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/info">Employers Info</a>
+                </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Report</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+
+    <title>Employer Information</title>
+    <style>
+        .container{
+            max-width: 960px;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="container-title-info"></div>
+            <h1>Employer Information</h1>
+
+            <table id="tableEmployer" class="table table-hover"></table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Employer Name</th>
+                        <th>Address</th>
+                        <th>Post code</th>
+                        <th>dif % In Mean Hourly Wage</th>
+                        <th>dif % In Median Hourly Wage</th>
+                        <th>dif % In Mean Bonus Received</th>
+                        <th>dif % In Median Bonus Received</th>
+                        <th>% Males Received Bonus</th>
+                        <th>% Females Received Bonus</th>
+                        <th>Proportion Males In Lower Quartile</th>
+                        <th>Proportion Females In Lower Quartile</th>
+                        <th>Proportion Males In Lower Middle Quartile</th>
+                        <th>Proportion Females In Lower Middle Quartile</th>
+                        <th>Proportion Males In Upper Middle Quartile</th>
+                        <th>Proportion Females In Upper Middle Quartile</th>
+                        <th>Proportion Males In Top Quartile</th>
+                        <th>Proportion Females In Top Quartile</th>
+                        <th>Link to Company GPG</th>
+                        <th>Responsible Person</th>
+                        <th>Employer size</th>
+                        <th>Current Name</th>
+                        <th>Submitted After The Deadline</th>
+                        <th>Company ID</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% employers.forEach((employer) => { %>
+                        <tr>
+                            <td><%= employer['_id'] %></td>
+                            <td><%= employer.employersName %></td>
+                            <td><%= employer['Address'] %></td>
+                            <td><%= employer['Postcode'] %></td>
+                            <td><%= employer['Percent Difference in Mean Hourly Wage'] %></td>
+                            <td><%= employer['Percent Difference in Median Hourly Wage'] %></td>
+                            <td><%= employer['Percent Difference in Mean Bonus Received'] %></td>
+                            <td><%= employer['Percent Difference in Median Bonus Received'] %></td>
+                            <td><%= employer['Percentage of Males that Received a Bonus'] %></td>
+                            <td><%= employer['Percentage of Females that Received a Bonus'] %></td>
+                            <td><%= employer['Proportion of Males in Lower Quartile'] %></td>
+                            <td><%= employer['Proportion of Females in Lower Quartile'] %></td>
+                            <td><%= employer['Proportion of Males in Lower Middle Quartile'] %></td>
+                            <td><%= employer['Proportion of Females in Lower Middle Quartile'] %></td>
+                            <td><%= employer['Proportion of Males in Upper Middle Quartile'] %></td>
+                            <td><%= employer['Proportion of Females in Upper Middle Quartile'] %></td>
+                            <td><%= employer['Proportion of Males in Top Quartile'] %></td>
+                            <td><%= employer['Proportion of Females in Top Quartile'] %></td>
+                            <td><%= employer['Company Link To GPG Info'] %></td>
+                            <td><%= employer['Responsible Person'] %></td>
+                            <td><%= employer['Employer Size'] %></td>
+                            <td><%= employer['Current Name'] %></td>
+                            <td><%= employer['Submitted After The Deadline'] %></td>
+                            <td><%= employer['company_id'] %></td>
+                            <td>
+                                <a type="button" class="btnEditar btn btn-outline-primary bi bi-pencil"></a>
+                                <a href="/borrar/<%= employer['_id'] %>" class="btn btn-outline-danger bi bi-trash"></a>
+                            </td> 
+                                                                    
+                        </tr>
+                    <% }) %>
+                </tbody>
+    </div>
+
+  </body>
+</html>

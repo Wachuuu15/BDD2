@@ -9,133 +9,369 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/gender_pay_gap/Frontend/public/css/style.css">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">GOV.UK</a>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#"><b>GOV.UK</b></a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                <a class="nav-link" href="/">Register<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/info">Employers Info</a>
+           
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Register<span class="sr-only">(current)</span></a>
                     </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Report</a>
-                </li>
-            </ul>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/info">Employers Info</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Report</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Language
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#">English</a>
+                          <a class="dropdown-item" href="#">Español</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
-    <title>GPG</title>
+        
+    <title>Gender Pay Gap</title>
+    
     <style>
+        body{
+            background-color: #e4ddd2;
+        }
         .container{
+            margin-top: 10px;
             max-width: 960px;
         }
+
+        .container-title-info{
+            display: flex;
+            justify-content: center;
+
+            margin-bottom: 10px;
+        }
+
+        .navbar{
+            background-color: #d89db5;
+        }
+
+        .btnContainer{
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-save {
+            padding: 5px 10px; /* Agrega padding de 5px arriba y abajo, y 10px a los lados */
+        }
+
+        .bi-save {
+            margin-right: 10px; /* Añade 5px de margen a la derecha de la figura */
+        }
+
+        .row{
+            margin-bottom: 10px;
+        }
+
+        .form-label{
+            margin-bottom: 0px;
+        }
+
+        .dropdown-menu {
+            margin-left: -50px; /* Cambia este valor según la cantidad de margen que desees */
+        }
+
     </style>
   </head>
   <body>
         <div class="container">
-            <div class="container-title-info"></div>
+            <div class="container-title-info">
                 <h1>Customs gender pay gap report</h1>
-                <h4>Register Employer</h4>
-                <form action="/crear" method="POST">
+            </div>
+            
+            <h4>Register Employer</h4>
+            <form action="/crear" method="POST">
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="employerName" class="form-label">Employer Name</label>
+                        <label for="employerName" class="form-label" data-lang="employerName">Employer name</label>
                         <input id="employerName" name="employerName" type="text" class="form-control" required>    
                     </div>
                     <div class="col-md-6">
-                        <label for="address" class="form-label">Address</label>
+                        <label for="address" class="form-label" data-lang="address">Address</label>
                         <input id="address" name="address" type="text" class="form-control" required>    
                     </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="postcode" class="form-label">Post code</label>
+                        <label for="postcode" class="form-label" data-lang="postCode">Post code</label>
                         <input id="postcode" name="postcode" type="text" class="form-control" required>    
                     </div>
                     <div class="col-md-6">
-                        <label for="percentDifferenceInMeanHourlyWage" class="form-label">dif % In Mean Hourly Wage</label>
+                        <label for="percentDifferenceInMeanHourlyWage" class="form-label" data-lang="diffMean">Difference in average hourly wage (percentage)</label>
                         <input id="percentDifferenceInMeanHourlyWage" name="percentDifferenceInMeanHourlyWage" type="number" class="form-control" required>    
                     </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="percentDifferenceInMedianHourlyWage" class="form-label">dif % In Median Hourly Wage</label>
+                        <label for="percentDifferenceInMedianHourlyWage" class="form-label" data-lang="diffMedian">Difference in median hourly wage (percentage)</label>
                         <input id="percentDifferenceInMedianHourlyWage" name="percentDifferenceInMedianHourlyWage" type="number" class="form-control" required>    
                     </div>
                     <div class="col-md-6">
-                        <label for="percentDifferenceInMeanBonusReceived" class="form-label">dif % In Mean Bonus Received</label>
+                        <label for="percentDifferenceInMeanBonusReceived" class="form-label" data-lang="diffBonusMean">Difference in average bonus received (percentage)</label>
                         <input id="percentDifferenceInMeanBonusReceived" name="percentDifferenceInMeanBonusReceived" type="number" class="form-control" required>    
                     </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="percentDifferenceInMedianBonusReceived" class="form-label">dif % In Median Bonus Received</label>
+                        <label for="percentDifferenceInMedianBonusReceived" class="form-label" data-lang="diffBonusMedian">Difference in median bonus received (percentage)</label>
                         <input id="percentDifferenceInMedianBonusReceived" name="percentDifferenceInMedianBonusReceived" type="number" class="form-control" required>    
                     </div>
                     <div class="col-md-6">
-                        <label for="percentageOfMalesThatReceivedABonus" class="form-label">% Males Received Bonus</label>
+                        <label for="percentageOfMalesThatReceivedABonus" class="form-label" data-lang="malesBonus">Male who received bonus (percentage)</label>
                         <input id="percentageOfMalesThatReceivedABonus" name="percentageOfMalesThatReceivedABonus" type="number" class="form-control" required>    
                     </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="percentageOfFemalesThatReceivedABonus" class="form-label">% Females Received Bonus</label>
+                        <label for="percentageOfFemalesThatReceivedABonus" class="form-label" data-lang="femaleBonus">Female who received bonus (percentage)</label>
                         <input id="percentageOfFemalesThatReceivedABonus" name="percentageOfFemalesThatReceivedABonus" type="number" class="form-control" required>    
                     </div>
                     <div class="col-md-6">
-                        <label for="proportionOfMalesInLowerQuartile" class="form-label">Proportion Males In Lower Quartile</label>
+                        <label for="proportionOfMalesInLowerQuartile" class="form-label" data-lang="malesLowerQuartile">Proportion of male in lower quartile</label>
                         <input id="proportionOfMalesInLowerQuartile" name="proportionOfMalesInLowerQuartile" type="number" class="form-control" required>    
                     </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="proportionOfFemalesInLowerQuartile" class="form-label">Proportion Females In Lower Quartile</label>
+                        <label for="proportionOfFemalesInLowerQuartile" class="form-label" data-lang="femaleLowerQuartile">Proportion of female in lower quartile</label>
                         <input id="proportionOfFemalesInLowerQuartile" name="proportionOfFemalesInLowerQuartile" type="number" class="form-control" required>    
                     </div>
                     <div class="col-md-6">
-                        <label for="proportionOfMalesInLowerMiddleQuartile" class="form-label">Proportion Males In Lower Middle Quartile</label>
+                        <label for="proportionOfMalesInLowerMiddleQuartile" class="form-label" data-lang="malesMiddleQuartile">Proportion of male in middle quartile</label>
                         <input id="proportionOfMalesInLowerMiddleQuartile" name="proportionOfMalesInLowerMiddleQuartile" type="number" class="form-control" required>    
                     </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="proportionOfFemalesInLowerMiddleQuartile" class="form-label">Proportion Females In Lower Middle Quartile</label>
+                        <label for="proportionOfFemalesInLowerMiddleQuartile" class="form-label" data-lang="femaleMiddleQuartile">Proportion of female in middle quartile</label>
                         <input id="proportionOfFemalesInLowerMiddleQuartile" name="proportionOfFemalesInLowerMiddleQuartile" type="number" class="form-control" required>    
                     </div>
                     <div class="col-md-6">
-                        <label for="proportionOfMalesInUpperMiddleQuartile" class="form-label">Proportion Males In Upper Middle Quartile</label>
+                        <label for="proportionOfMalesInUpperMiddleQuartile" class="form-label" data-lang="malesUpperMiddleQuartile">Proportion of male in upper middle quartile</label>
                         <input id="proportionOfMalesInUpperMiddleQuartile" name="proportionOfMalesInUpperMiddleQuartile" type="number" class="form-control" required>    
                     </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="proportionOfFemalesInUpperMiddleQuartile" class="form-label">Proportion Females In Upper Middle Quartile</label>
+                        <label for="proportionOfFemalesInUpperMiddleQuartile" class="form-label" data-lang="femaleUpperMiddleQuartile">Proportion of female in upper middle quartile</label>
                         <input id="proportionOfFemalesInUpperMiddleQuartile" name="proportionOfFemalesInUpperMiddleQuartile" type="number" class="form-control" required>    
                     </div>
                     <div class="col-md-6">
-                        <label for="proportionOfMalesInTopQuartile" class="form-label">Proportion Males In Top Quartile</label>
+                        <label for="proportionOfMalesInTopQuartile" class="form-label" data-lang="malesUpperQuartile">Proportion of men in upper quartile</label>
                         <input id="proportionOfMalesInTopQuartile" name="proportionOfMalesInTopQuartile" type="number" class="form-control" required>    
                     </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="proportionOfFemalesInTopQuartile" class="form-label">Proportion Females In Top Quartile</label>
+                        <label for="proportionOfFemalesInTopQuartile" class="form-label" data-lang="femaleUpperQuartile">Proportion of female in upper quartile</label>
                         <input id="proportionOfFemalesInTopQuartile" name="proportionOfFemalesInTopQuartile" type="number" class="form-control" required>    
                     </div>
+                    
                     <div class="col-md-6">
-                        <label for="companyLinkToGPGInfo" class="form-label">Link to Company GPG</label>
+                        <label for="companyLinkToGPGInfo" class="form-label" data-lang="link">Company link</label>
                         <input id="companyLinkToGPGInfo" name="companyLinkToGPGInfo" type="text" class="form-control" required>    
                     </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="responsiblePerson" class="form-label">Responsible Person</label>
+                        <label for="responsiblePerson" class="form-label" data-lang="responsiblePerson">Responsible person</label>
                         <input id="responsiblePerson" name="responsiblePerson" type="text" class="form-control" required>    
                     </div>
                     <div class="col-md-6">
-                        <label for="employerSize" class="form-label">Employer size</label>
+                        <label for="employerSize" class="form-label" data-lang="employerSize">Number of employees</label>
                         <input id="employerSize" name="employerSize" type="text" class="form-control" required>    
                     </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="currentName" class="form-label">Current Name</label>
+                        <label for="currentName" class="form-label" data-lang="name">Current name</label>
                         <input id="currentName" name="currentName" type="text" class="form-control" required>    
                     </div>
                     <div class="col-md-6">
-                        <label for="submittedAfterTheDeadline" class="form-label">Submitted After The Deadline</label>
+                        <label for="submittedAfterTheDeadline" class="form-label" data-lang="deadline">Submitted after the deadline</label>
                         <input id="submittedAfterTheDeadline" name="submittedAfterTheDeadline" type="text" class="form-control" required>    
                     </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
-                        <label for="company_id" class="form-label">Company ID</label>
+                        <label for="company_id" class="form-label" data-lang="companyId">Company ID</label>
                         <input id="company_id" name="company_id" type="number" class="form-control" required>    
                     </div>
-                    <button type="submit" class="btn-save"><i class="bi bi-save"></i>Register Employer</button>
-                </form>
-            </div>
+                </div>
+
+                <div class="btnContainer">
+                    <button type="submit" class="btn-save rounded"><i class="bi bi-save"></i>Register Employer</button>
+                </div>
+            </form>
         </div>
+
+    <script>
+        var translations = {
+            'employerName': {
+                'English': 'Employer name',
+                'Español': 'Nombre del empleador'
+            },
+
+            'address':{
+                'English': 'Address',
+                'Español': 'Dirección'
+            },
+
+            'postCode':{
+                'English': 'Post code',
+                'Español': 'Código postal'
+            },
+
+            'diffMean':{
+                'English': 'Difference in average hourly wage (percentage)',
+                'Español': 'Diferencia en salario promedio por hora (porcentaje)'
+            },
+
+            'diffMedian':{
+                'English': 'Difference in median hourly wage (percentage)',
+                'Español': 'Diferencia en la media del salario por hora (porcentaje)'
+            },
+
+            'diffBonusMean':{
+                'English': 'Difference in average bonus received (percentage)',
+                'Español': 'Diferencia en el bonus promedio recibido (porcentaje)'
+            },
+            'diffBonusMedian':{
+                'English': 'Difference in median bonus received (percentage)',
+                'Español': 'Diferencia en la media del bonus recibido (porcentaje)'
+            },
+            'malesBonus':{
+                'English': 'Men who received bonus (percentage)',
+                'Español': 'Hombres que recibieron bonus (porcentaje)'
+            },
+            'femaleBonus':{
+                'English': 'Female who received bonus (percentage)',
+                'Español': 'Mujeres que recibieron bonus (porcentaje)'
+            },
+            'malesLowerQuartile':{
+                'English': 'Proportion of men in lower quartile',
+                'Español': 'Proporción de hombres en el cuartil inferior'
+            },
+            'femaleLowerQuartile':{
+                'English': 'Proportion of female in lower quartile',
+                'Español': 'Proporción de mujeres en el cuartil inferior'
+            },
+            'malesMiddleQuartile':{
+                'English': 'Proportion of men in middle quartile',
+                'Español': 'Proporción de hombres en el cuartil medio'
+            },
+            'femaleMiddleQuartile':{
+                'English': 'Proportion of female in middle quartile',
+                'Español': 'Proporción de mujeres en el cuartil medio'
+            },
+            'malesUpperMiddleQuartile':{
+                'English': 'Proportion of men in upper middle quartile',
+                'Español': 'Proporción de hombres en el cuartil medio alto'
+            },
+            'femaleUpperMiddleQuartile':{
+                'English': 'Proportion of female in upper middle quartile',
+                'Español': 'Proporción de mujeres en el cuartil medio alto'
+            },
+            'malesUpperQuartile':{
+                'English': 'Proportion of men in upper quartile',
+                'Español': 'Proporción de hombres en el cuartil superior'
+            },
+            'femaleUpperQuartile':{
+                'English': 'Proportion of female in upper quartile',
+                'Español': 'Proporción de mujeres en el cuartil superior'
+            },
+            'link':{
+                'English': 'Company link ',
+                'Español': 'Link de la compañia'
+            },
+            'respPerson':{
+                'English': 'Responsible person',
+                'Español': 'Persona responsable'
+            },
+            'numEmployees':{
+                'English': 'Number of employees',
+                'Español': 'Número de empleados'
+            },
+            'name':{
+                'English': 'Current name',
+                'Español': 'Nombre actual'
+            },
+            'deadline':{
+                'English': 'Submitted after the deadline',
+                'Español': 'Entregado luego de fecha límite'
+            },
+            'companyId':{
+                'English': 'Company ID',
+                'Español': 'ID de la compañía'
+            }
+        }
+
+        // Obtén el elemento del enlace "Language"
+        var dropdownToggle = document.querySelector('.dropdown-toggle');
+    
+        // Agrega un event listener para el clic en el enlace
+        dropdownToggle.addEventListener('click', function() {
+            var dropdownMenu = document.querySelector('.dropdown-menu');
+            dropdownMenu.classList.toggle('show');
+        });
+
+        function updateLabels(language) {
+    var labels = document.querySelectorAll('.form-label');
+    labels.forEach(function(label) {
+        var id = label.getAttribute('for');
+        if (translations[id] && translations[id][language]) {
+            label.textContent = translations[id][language];
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var lang = 'English'; // Cambia esto a 'Español' si quieres que el idioma inicial sea español
+    updateLabels(lang);
+});
+
+var languageButtons = document.querySelectorAll('.dropdown-item');
+languageButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        var language = this.textContent.trim();
+        updateLabels(language);
+    });
+});
+
+    </script>
   </body>
 </html>

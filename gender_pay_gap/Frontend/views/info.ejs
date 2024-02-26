@@ -69,44 +69,51 @@
                         <th>Submitted After The Deadline</th>
                         <th>Company ID</th>
                     </tr>
+               
                 </thead>
 
                 <tbody>
-                    <% employers.forEach((employer) => { %>
+                    <% if (employers.length === 0) { %>
                         <tr>
-                            <td><%= employer['_id'] %></td>
-                            <td><%= employer.employersName %></td>
-                            <td><%= employer['Address'] %></td>
-                            <td><%= employer['Postcode'] %></td>
-                            <td><%= employer['Percent Difference in Mean Hourly Wage'] %></td>
-                            <td><%= employer['Percent Difference in Median Hourly Wage'] %></td>
-                            <td><%= employer['Percent Difference in Mean Bonus Received'] %></td>
-                            <td><%= employer['Percent Difference in Median Bonus Received'] %></td>
-                            <td><%= employer['Percentage of Males that Received a Bonus'] %></td>
-                            <td><%= employer['Percentage of Females that Received a Bonus'] %></td>
-                            <td><%= employer['Proportion of Males in Lower Quartile'] %></td>
-                            <td><%= employer['Proportion of Females in Lower Quartile'] %></td>
-                            <td><%= employer['Proportion of Males in Lower Middle Quartile'] %></td>
-                            <td><%= employer['Proportion of Females in Lower Middle Quartile'] %></td>
-                            <td><%= employer['Proportion of Males in Upper Middle Quartile'] %></td>
-                            <td><%= employer['Proportion of Females in Upper Middle Quartile'] %></td>
-                            <td><%= employer['Proportion of Males in Top Quartile'] %></td>
-                            <td><%= employer['Proportion of Females in Top Quartile'] %></td>
-                            <td><%= employer['Company Link To GPG Info'] %></td>
-                            <td><%= employer['Responsible Person'] %></td>
-                            <td><%= employer['Employer Size'] %></td>
-                            <td><%= employer['Current Name'] %></td>
-                            <td><%= employer['Submitted After The Deadline'] %></td>
-                            <td><%= employer['company_id'] %></td>
-                            <td>
-                                <a type="button" class="btnEditar btn btn-outline-primary bi bi-pencil"></a>
-                                <a href="/borrar/<%= employer['_id'] %>" class="btn btn-outline-danger bi bi-trash"></a>
-                            </td> 
-                                                                    
+                            <td colspan="25">No hay empleadores disponibles.</td>
                         </tr>
-                    <% }) %>
+                    <% } else { %>
+                        <% console.log(employers); %>
+                        <% employers.forEach((employer) => { %>
+                            <tr>
+                                <td><%= employer['_id'] %></td>
+                                <td><%= employer['Employer Name'] %></td>
+                                <td><%= employer['Address'] %></td>
+                                <td><%= employer['Postcode'] %></td>
+                                <td><%= employer['Percent Difference in Mean Hourly Wage'] %></td>
+                                <td><%= employer['Percent Difference in Median Hourly Wage'] %></td>
+                                <td><%= employer['Percent Difference in Mean Bonus Received'] %></td>
+                                <td><%= employer['Percent Difference in Median Bonus Received'] %></td>
+                                <td><%= employer['Percentage of Males that Received a Bonus'] %></td>
+                                <td><%= employer['Percentage of Females that Received a Bonus'] %></td>
+                                <td><%= employer['Proportion of Males in Lower Quartile'] %></td>
+                                <td><%= employer['Proportion of Females in Lower Quartile'] %></td>
+                                <td><%= employer['Proportion of Males in Lower Middle Quartile'] %></td>
+                                <td><%= employer['Proportion of Females in Lower Middle Quartile'] %></td>
+                                <td><%= employer['Proportion of Males in Upper Middle Quartile'] %></td>
+                                <td><%= employer['Proportion of Females in Upper Middle Quartile'] %></td>
+                                <td><%= employer['Proportion of Males in Top Quartile'] %></td>
+                                <td><%= employer['Proportion of Females in Top Quartile'] %></td>
+                                <td><%= employer['Company Link To GPG Info'] %></td>
+                                <td><%= employer['Responsible Person'] %></td>
+                                <td><%= employer['Employer Size'] %></td>
+                                <td><%= employer['Current Name'] %></td>
+                                <td><%= employer['Submitted After The Deadline']%></td>
+                                <td><%= employer['company_id'] %></td>
+                                <td>
+                                    <a type="button" class="btnEditar btn btn-outline-primary bi bi-pencil"></a>
+                                    <a href="/borrar/<%= employer['_id'] %>" class="btn btn-outline-danger bi bi-trash"></a>
+                                </td> 
+                            </tr>
+                        <% }) %>
+                    <% } %>
                 </tbody>
-    </div>
+                    </div>
 
   </body>
 </html>

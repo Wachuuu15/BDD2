@@ -4,9 +4,9 @@ const Employer = require('../model/employer');
 const mostrar = async (req, res) => {
     try {
         await Employer.init();
-        console.log('Iniciando consulta de empleadores...');
+        //console.log('Iniciando consulta de empleadores...');
 
-        const limitPerPage = 1;
+        const limitPerPage = 20;
         const page = parseInt(req.query.page) || 1;
         const startIndex = (page - 1) * limitPerPage;
 
@@ -16,7 +16,7 @@ const mostrar = async (req, res) => {
                                         .exec();
         
         
-        console.log('Consulta finalizada. Empleadores encontrados:', employers);
+        //console.log('Consulta finalizada. Empleadores encontrados:', employers);
 
         if (employers === null || employers.length === 0) {
             res.status(404).json({ message: 'No se encontraron empleadores' });

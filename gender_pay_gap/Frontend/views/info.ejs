@@ -122,15 +122,102 @@
     </button>
     
   <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div id = "modalEmployer" class= "modal fade" tabindex="-1" aria-labelledby="modalEmployer" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <div class="modal-header bg-primary text-white">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Employer</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          <form action="/editar" method="POST">
+            <input type="text" name="id_editar" id="id_editar" hidden>
+            <div class="mb-3">
+              <label for = "name-edit" class="col-form-label">Employer Name</label>
+              <input id="name-edit" name="name-edit" type="text" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "address-edit" class="col-form-label">Address</label>
+              <input id="address-edit" name="address-edit" type="text" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "post-edit" class="col-form-label">Post Code</label>
+              <input id="post-edit" name="post-edit" type="text" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "meanh-edit" class="col-form-label">dif % In Mean Hourly Wage</label>
+              <input id="meanh-edit" name="meanh-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "medianh-edit" class="col-form-label">dif % In Median Hourly Wage</label>
+              <input id="medianh-edit" name="medianh-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "meanb-edit" class="col-form-label">dif % In Mean Bonus Received</label>
+              <input id="meanb-edit" name="meanb-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "medianb-edit" class="col-form-label">dif % In Median Bonus Received</label>
+              <input id="medianb-edit" name="medianb-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "malesr-edit" class="col-form-label">% Males Received Bonus</label>
+              <input id="malesr-edit" name="malesr-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "femalesr-edit" class="col-form-label">% Females Received Bonus</label>
+              <input id="femalesr-edit" name="femalesr-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "propmalesl-edit" class="col-form-label">Proportion Males In Lower Quartile</label>
+              <input id="propmalesl-edit" name="propmalesl-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "propfemalesl-edit" class="col-form-label">Proportion Females In Lower Quartile</label>
+              <input id="propfemalesl-edit" name="propfemalesl-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "propfemaleslm-edit" class="col-form-label">Proportion Females In Lower Middle Quartile</label>
+              <input id="propfemaleslm-edit" name="propfemaleslm-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "propmaleslm-edit" class="col-form-label">Proportion Males In Lower Middle Quartile</label>
+              <input id="propmaleslm-edit" name="propmaleslm-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "propmalesup-edit" class="col-form-label">Proportion Males In Upper Middle Quartile</label>
+              <input id="propmalesup-edit" name="propmalesup-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "propfemalesup-edit" class="col-form-label">Proportion Females In Upper Middle Quartile</label>
+              <input id="propfemalesup-edit" name="propfemalesup-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "propmalestop-edit" class="col-form-label">Proportion Males In Top Quartile</label>
+              <input id="propmalestop-edit" name="propmalestop-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "propfemalestop-edit" class="col-form-label">Proportion Females In Top Quartile</label>
+              <input id="propfemalestop-edit" name="propfemalestop-edit" type="number" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "link-edit" class="col-form-label">Link to Company GPG</label>
+              <input id="link-edit" name="link-edit" type="text" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "resp-edit" class="col-form-label">Responsible Person</label>
+              <input id="resp-edit" name="resp-edit" type="text" class="form-control" value="">
+            </div>
+            <div class="mb-3">
+              <label for = "resp-edit" class="col-form-label">Responsible Person</label>
+              <input id="resp-edit" name="resp-edit" type="text" class="form-control" value="">
+            </div>
+
+
+
+
+
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

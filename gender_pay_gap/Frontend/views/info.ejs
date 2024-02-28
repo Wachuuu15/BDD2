@@ -8,31 +8,66 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/gender_pay_gap/Frontend/public/css/style.css">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">GOV.UK</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <b>GOV.UK</b>
+        </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-            <a class="nav-link" href="/">Register<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/info">Employers Info</a>
+        
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">
+                        Register
+                        <span class="sr-only">
+                            (current)
+                        </span>
+                    </a>
                 </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Report</a>
-            </li>
-        </ul>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/info">Employers Info</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Report</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
     <title>Employer Information</title>
     <style>
-        .container{
-            max-width: 960px;
+        body{
+          background-color: #e4ddd2;
+          width: 100%;
+          margin: 0;
         }
+        .container{
+          margin-top: 10px;
+          width: 100%;
+          margin-left: 10px;
+        }
+
+        .navbar{
+          background-color: #d89db5;
+          width:100%;
+        }
+
+        .btn{
+          margin-top: 15px;
+        }
+
+        .btnContainer{
+          width: 100%;
+          
+          display: flex;
+          justify-content: center;
+        }
+
     </style>
   </head>
   <body>
@@ -117,9 +152,11 @@
         </div>
 
             <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <div class="btnContainer">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Launch static backdrop modal
-    </button>
+      </button> 
+    </div>
     
   <!-- Modal -->
   <div id = "modalEmployer" class= "modal fade" tabindex="-1" aria-labelledby="modalEmployer" aria-hidden="true">
@@ -213,12 +250,9 @@
               <input id="resp-edit" name="resp-edit" type="text" class="form-control" value="">
             </div>
 
-
-
-
-
           </form>
         </div>
+        
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Understood</button>

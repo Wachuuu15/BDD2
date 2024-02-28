@@ -30,4 +30,9 @@ const mostrar = async (req, res) => {
     }
 };
 
-module.exports = { mostrar };
+const crear = async (req, res) => {
+    //console.log(req.body)
+    const 
+}
+
+module.exports = { mostrar, crear };

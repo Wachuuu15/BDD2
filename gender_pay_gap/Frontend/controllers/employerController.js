@@ -4,9 +4,8 @@ const Employer = require('../model/employer');
 const mostrar = async (req, res) => {
     try {
         await Employer.init();
-        //console.log('Iniciando consulta de empleadores...');
-
-        const limitPerPage = 20;
+        console.log('Iniciando consulta de empleadores...');
+        const limitPerPage = 1;
         const page = parseInt(req.query.page) || 1;
         const startIndex = (page - 1) * limitPerPage;
 
@@ -62,7 +61,6 @@ const crear = async (req, res) => {
         company_id: req.body.company_id
     })
     try {
-        // Guardar el nuevo empleador en la base de datos
         const savedEmployer = await newEmployer.save();
         res.redirect('/info');
 
@@ -72,4 +70,28 @@ const crear = async (req, res) => {
     }
 };
 
-module.exports = { mostrar, crear };
+const editar = async (req, res) => {
+    console.log('Empezando a editar');
+
+    try {
+        const id = req.body.id_editar;
+        const updatedData = { ...req.body }; 
+
+        delete updatedData.id_editar;
+
+        const updatedEmployer = await Employer.findByIdAndUpdate(id, updatedData);
+
+        if (!updatedEmployer) {
+            return res.status(404).json({ message: 'No se encontró el empleador para editar' });
+        }
+
+        console.log('Se hizo update');
+
+        res.redirect('/info?edit_success=true');
+    } catch (error) {
+        console.error('Error al actualizar el empleador:', error);
+        res.status(500).send('Error al actualizar el empleador');
+    }
+};
+
+module.exports = { mostrar, crear, editar};

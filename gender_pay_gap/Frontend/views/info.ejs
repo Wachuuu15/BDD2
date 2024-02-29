@@ -173,9 +173,8 @@
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Employer</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
         <div class="modal-body">
-          <form action="/editar" method="POST">
+          <form action="/info" method="POST">
             <input type="text" name="id_editar" id="id_editar" hidden>
             <div class="mb-3">
               <label for = "name_edit" class="col-form-label">Employer Name</label>
@@ -191,59 +190,59 @@
             </div>
             <div class="mb-3">
               <label for = "meanh_edit" class="col-form-label">dif % In Mean Hourly Wage</label>
-              <input id="meanh_edit" name="meanh_edit" type="number" class="form-control" value="">
+              <input id="meanh_edit" name="meanh_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "medianh_edit" class="col-form-label">dif % In Median Hourly Wage</label>
-              <input id="medianh_edit" name="medianh_edit" type="number" class="form-control" value="">
+              <input id="medianh_edit" name="medianh_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "meanb_edit" class="col-form-label">dif % In Mean Bonus Received</label>
-              <input id="meanb_edit" name="meanb_edit" type="number" class="form-control" value="">
+              <input id="meanb_edit" name="meanb_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "medianb_edit" class="col-form-label">dif % In Median Bonus Received</label>
-              <input id="medianb_edit" name="medianb_edit" type="number" class="form-control" value="">
+              <input id="medianb_edit" name="medianb_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "malesr_edit" class="col-form-label">% Males Received Bonus</label>
-              <input id="malesr_edit" name="malesr_edit" type="number" class="form-control" value="">
+              <input id="malesr_edit" name="malesr_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "femalesr_edit" class="col-form-label">% Females Received Bonus</label>
-              <input id="femalesr_edit" name="femalesr_edit" type="number" class="form-control" value="">
+              <input id="femalesr_edit" name="femalesr_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "propmalesl_edit" class="col-form-label">Proportion Males In Lower Quartile</label>
-              <input id="propmalesl_edit" name="propmalesl_edit" type="number" class="form-control" value="">
+              <input id="propmalesl_edit" name="propmalesl_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "propfemalesl_edit" class="col-form-label">Proportion Females In Lower Quartile</label>
-              <input id="propfemalesl_edit" name="propfemalesl_edit" type="number" class="form-control" value="">
+              <input id="propfemalesl_edit" name="propfemalesl_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "propmaleslm_edit" class="col-form-label">Proportion Males In Lower Middle Quartile</label>
-              <input id="propmaleslm_edit" name="propmaleslm_edit" type="number" class="form-control" value="">
+              <input id="propmaleslm_edit" name="propmaleslm_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "propfemaleslm_edit" class="col-form-label">Proportion Females In Lower Middle Quartile</label>
-              <input id="propfemaleslm_edit" name="propfemaleslm_edit" type="number" class="form-control" value="">
+              <input id="propfemaleslm_edit" name="propfemaleslm_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "propmalesup_edit" class="col-form-label">Proportion Males In Upper Middle Quartile</label>
-              <input id="propmalesup_edit" name="propmalesup_edit" type="number" class="form-control" value="">
+              <input id="propmalesup_edit" name="propmalesup_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "propfemalesup_edit" class="col-form-label">Proportion Females In Upper Middle Quartile</label>
-              <input id="propfemalesup_edit" name="propfemalesup_edit" type="number" class="form-control" value="">
+              <input id="propfemalesup_edit" name="propfemalesup_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "propmalestop_edit" class="col-form-label">Proportion Males In Top Quartile</label>
-              <input id="propmalestop_edit" name="propmalestop_edit" type="number" class="form-control" value="">
+              <input id="propmalestop_edit" name="propmalestop_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "propfemalestop_edit" class="col-form-label">Proportion Females In Top Quartile</label>
-              <input id="propfemalestop_edit" name="propfemalestop_edit" type="number" class="form-control" value="">
+              <input id="propfemalestop_edit" name="propfemalestop_edit" type="text" class="form-control" required pattern="[0-9]+(\.[0-9]+)?" title="Please enter a valid number">   
             </div>
             <div class="mb-3">
               <label for = "link_edit" class="col-form-label">Link to Company GPG</label>
@@ -283,6 +282,8 @@
   <!-- Cargar Bootstrap-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/js/extract.js"></script>
+</body>
+</html>
 
   <script>
       // Obtén el elemento del enlace "Language"

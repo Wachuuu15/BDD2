@@ -6,5 +6,7 @@ const employerController = require('../controllers/EmployerController');
 router.get('/info', employerController.mostrar);
 //Ruta create POST
 router.post('/info', employerController.crear);
+// 
+router.post('/info', employerController.editar);
 
 module.exports = router;

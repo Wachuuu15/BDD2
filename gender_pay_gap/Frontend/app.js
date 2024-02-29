@@ -23,7 +23,6 @@ app.get('/info', (req, res) => {
 });
 
 
-
 app.listen(3000, () => {
     console.log('Servidor conectado en http://localhost:3000');
 });

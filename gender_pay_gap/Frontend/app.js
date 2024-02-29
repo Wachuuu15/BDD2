@@ -20,7 +20,9 @@ app.use('/', employersRouter);
 
 app.get('/info', (req, res) => {
     res.render('info');
-}); 
+});
+
+
 
 app.listen(3000, () => {
     console.log('Servidor conectado en http://localhost:3000');

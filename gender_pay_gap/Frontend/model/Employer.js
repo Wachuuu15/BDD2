@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-const newObjectId = new mongoose.ObjectId();
 
 const employerSchema = new mongoose.Schema({
-    _id: newObjectId,
     'Employer Name': String,
     'Address': String,
     'Postcode': String,

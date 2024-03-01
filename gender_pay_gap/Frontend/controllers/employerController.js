@@ -71,8 +71,6 @@ const crear = async (req, res) => {
 };
 
 const editar = async (req, res) => {
-    console.log('Empezando a editar');
-
     try {
         const id = req.body.id_editar;
         const updatedData = {         
@@ -118,4 +116,20 @@ const editar = async (req, res) => {
     }
 };
 
-module.exports = { mostrar, crear, editar}; 
+const borrar = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const deletedEmployer = await Employer.findByIdAndDelete(id);
+
+        if (!deletedEmployer) {
+            return res.status(404).json({ message: 'No se encontró el empleador para borrar' });
+        }
+
+        res.redirect('/');
+    } catch (error) {
+        console.error('Error eliminando al empleador:', error);
+        res.status(500).send('Error eliminando al empleador');
+    }
+};
+
+module.exports = { mostrar, crear, editar, borrar};

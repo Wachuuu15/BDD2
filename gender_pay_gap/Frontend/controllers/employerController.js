@@ -75,9 +75,33 @@ const editar = async (req, res) => {
 
     try {
         const id = req.body.id_editar;
-        const updatedData = { ...req.body }; 
+        const updatedData = {         
+            'Employer Name': req.body.name_edit,
+            'Address': req.body.address_edit,
+            'Postcode': req.body.post_edit,
+            'Percent Difference in Mean Hourly Wage': req.body.meanh_edit,
+            'Percent Difference in Median Hourly Wage': req.body.medianh_edit,
+            'Percent Difference in Mean Bonus Received': req.body.meanb_edit,
+            'Percent Difference in Median Bonus Received': req.body.medianb_edit,
+            'Percentage of Males that Received a Bonus': req.body.malesr_edit,
+            'Percentage of Females that Received a Bonus': req.body.femalesr_edit,
+            'Proportion of Males in Lower Quartile': req.body.propmalesl_edit,
+            'Proportion of Females in Lower Quartile': req.body.propfemalesl_edit,
+            'Proportion of Males in Lower Middle Quartile': req.body.propmaleslm_edit,
+            'Proportion of Females in Lower Middle Quartile': req.body.propfemaleslm_edit,
+            'Proportion of Males in Upper Middle Quartile': req.body.propmalesup_edit,
+            'Proportion of Females in Upper Middle Quartile': req.body.propfemalesup_edit,
+            'Proportion of Males in Top Quartile': req.body.propmalestop_edit,
+            'Proportion of Females in Top Quartile': req.body.propfemalestop_edit,
+            'Company Link To GPG Info': req.body.link_edit,
+            'Responsible Person':req.body.resp_edit,
+            'Employer Size': req.body.size_edit,
+            'Current Name': req.body.current_edit,
+            'Submitted After The Deadline': req.body.submit_edit,
+            company_id: req.body.company_id
+ }; 
 
-        delete updatedData.id_editar;
+        //delete updatedData.id_editar;
 
         const updatedEmployer = await Employer.findByIdAndUpdate(id, updatedData);
 
@@ -94,4 +118,4 @@ const editar = async (req, res) => {
     }
 };
 
-module.exports = { mostrar, crear, editar};
+module.exports = { mostrar, crear, editar}; 

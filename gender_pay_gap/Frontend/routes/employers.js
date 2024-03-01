@@ -7,6 +7,6 @@ router.get('/info', employerController.mostrar);
 //Ruta create POST
 router.post('/info', employerController.crear);
 // 
-router.post('/info', employerController.editar);
+router.post('/editar', employerController.editar);
 
 module.exports = router;

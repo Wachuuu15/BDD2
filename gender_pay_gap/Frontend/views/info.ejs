@@ -89,7 +89,17 @@
     <div class="container">
         <div class="container-title-info"></div>
             <h1>Employer Information</h1>
-
+            <br>
+            <br>
+            <h2>Buscador</h2>
+            <div>
+              <form action="/info" method="GET">
+                  <input type="text" name="search" id="search" placeholder="Search..." value="<%= typeof search !== 'undefined' ? search : '' %>">
+                  <button type="submit">Buscar</button>
+              </form>
+          </div>
+                      <br>
+            <br>
             <table id="tableEmployer" class="table table-hover">
                 <thead>
                     <tr>
@@ -127,7 +137,6 @@
                             <td colspan="25">No hay empleadores disponibles.</td>
                         </tr>
                     <% } else { %>
-                        <% console.log(employers); %>
                         <% employers.forEach((employer) => { %>
                             <tr>
                                 <td style = "display: none;"><%= employer['_id'] %></td>
@@ -163,6 +172,34 @@
                     <% } %>
                 </tbody>
             </table>
+            <!-- Paginas cambio de cada una-->
+            <div>
+              <% if (currentPage > 1) { %>
+                <a href="/info?page=1">Antes</a>
+                <% if (currentPage > 3) { %>
+                  <span>...</span>
+                <% } %>
+              <% } %>
+              
+              <% for (let i = Math.max(1, currentPage - 1); i <= Math.min(currentPage + 1, totalPages); i++) { %>
+                <% if (i !== currentPage) { %>
+                  <a href="/info?page=<%= i %>"><%= i %></a>
+                <% } else { %>
+                  <span><%= i %></span>
+                <% } %>
+              <% } %>
+            
+              <% if (currentPage < totalPages) { %>
+                <% if (currentPage < totalPages - 2) { %>
+                  <span>...</span>
+                <% } %>
+                <a href="/info?page=<%= totalPages %>"><%= totalPages %></a>
+              <% } %>
+            
+              <% if (currentPage < totalPages) { %>
+                <a href="/info?page=<%= currentPage + 1 %>">Siguiente</a>
+              <% } %>
+            </div>            
         </div>
     
   <!-- Modal para Editar-->
@@ -328,5 +365,22 @@
           });
       });
   </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          $('#search').on('input', function() {
+              var searchText = $(this).val().trim().toLowerCase();
+              $('#tableEmployer tbody tr').each(function() {
+                  var employerName = $(this).find('td:eq(1)').text().trim().toLowerCase();
+                  if (employerName.includes(searchText)) {
+                      $(this).show();
+                  } else {
+                      $(this).hide();
+                  }
+              });
+          });
+      });
+  </script>
+  
 </body>
 </html>

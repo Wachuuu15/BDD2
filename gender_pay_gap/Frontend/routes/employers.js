@@ -10,4 +10,7 @@ router.post('/info', employerController.crear);
 router.post('/editar', employerController.editar);
 // Borrar Employer GET
 router.get('/borrar/:id', employerController.borrar);
+// Ruta para la búsqueda de empleadores Employer GET
+router.get('/search', employerController.search);
+
 module.exports = router;

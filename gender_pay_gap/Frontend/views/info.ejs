@@ -82,6 +82,22 @@
         .dropdown-menu {
           margin-left: -50px; 
         }
+
+        .searchButton{
+          margin-left: 10px;
+          width: 90px;
+        }
+
+        .searchButton:hover{
+          color: #d76483;
+          font-weight: bold;
+        }
+
+        .pageSelector{
+          width: 50%;
+          display: flex;
+          justify-content: space-between;
+        }
     </style>
   </head>
 
@@ -89,17 +105,20 @@
     <div class="container">
         <div class="container-title-info"></div>
             <h1>Employer Information</h1>
-            <br>
-            <br>
-            <h2>Buscador</h2>
-            <div>
-              <form action="/info" method="GET">
-                  <input type="text" name="search" id="search" placeholder="Search..." value="<%= typeof search !== 'undefined' ? search : '' %>">
-                  <button type="submit">Buscar</button>
-              </form>
-          </div>
-                      <br>
-            <br>
+    
+            <div class="mt-2 mb-3">
+              <h2>Buscador</h2>
+              <div>
+                <form action="/info" method="GET">
+                  <input type="text" name="search" id="search" placeholder="Search..." value="<%= typeof search !== 'undefined' ? search : '' %>" style="border-radius: 5px">
+                 
+                  <button type="submit" class="searchButton rounded">
+                    Buscar
+                  </button>
+                </form>
+              </div>
+            </div>
+            
             <table id="tableEmployer" class="table table-hover">
                 <thead>
                     <tr>
@@ -107,22 +126,22 @@
                         <th>Employer Name</th>
                         <th>Address</th>
                         <th>Post code</th>
-                        <th>dif % In Mean Hourly Wage</th>
-                        <th>dif % In Median Hourly Wage</th>
-                        <th>dif % In Mean Bonus Received</th>
-                        <th>dif % In Median Bonus Received</th>
-                        <th>% Males Received Bonus</th>
-                        <th>% Females Received Bonus</th>
-                        <th>Proportion Males In Lower Quartile</th>
-                        <th>Proportion Females In Lower Quartile</th>
-                        <th>Proportion Males In Lower Middle Quartile</th>
-                        <th>Proportion Females In Lower Middle Quartile</th>
-                        <th>Proportion Males In Upper Middle Quartile</th>
-                        <th>Proportion Females In Upper Middle Quartile</th>
-                        <th>Proportion Males In Top Quartile</th>
-                        <th>Proportion Females In Top Quartile</th>
-                        <th>Link to Company GPG</th>
-                        <th>Responsible Person</th>
+                        <th>Difference in average hourly wage</th>
+                        <th>Difference in median hourly wage</th>
+                        <th>Difference in average bonus received</th>
+                        <th>Difference in median bonus received</th>
+                        <th>Men who received bonus (percentage)</th>
+                        <th>Female who received bonus (percentage)</th>
+                        <th>Male proportion in lower quartile</th>
+                        <th>Female proportion in lower quartile</th>
+                        <th>Male proportion in middle quartile</th>
+                        <th>Female proportion in middle quartile</th>
+                        <th>Male proportion in upper middle quartile</th>
+                        <th>Female proportion in upper middle quartile</th>
+                        <th>Male proportion in upper quartile</th>
+                        <th>Female proportion in upper quartile</th>
+                        <th>Company link</th>
+                        <th>Responsible person</th>
                         <th>Employer size</th>
                         <th>Current Name</th>
                         <th>Submitted After The Deadline</th>
@@ -172,8 +191,9 @@
                     <% } %>
                 </tbody>
             </table>
+
             <!-- Paginas cambio de cada una-->
-            <div>
+            <div class="pageSelector">
               <% if (currentPage > 1) { %>
                 <a href="/info?page=1">Antes</a>
                 <% if (currentPage > 3) { %>

@@ -13,13 +13,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('index');
-});
-
-app.use('/', employersRouter);
-
-app.get('/info', (req, res) => {
-    res.render('info');
+    res.render('signup');
 });
 
 

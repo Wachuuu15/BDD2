@@ -95,3 +95,15 @@ input-field i{
     color: #555;
 
 }
+
+.btn-submit button{
+    flex-basis: 48%;
+    background: purple;
+    color: #fff;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 1s;
+}

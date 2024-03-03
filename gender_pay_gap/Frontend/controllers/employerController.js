@@ -3,20 +3,15 @@ const Employer = require('../model/employer');
 
 const mostrar = async (req, res) => {
     try {
-        // Obtener el término de búsqueda si está presente
         const searchTerm = req.query.search;
 
-        // Definir limitPerPage aquí
         const limitPerPage = 20; 
-        // Definir page aquí para que esté disponible en todo el alcance de la función
         const page = parseInt(req.query.page) || 1;
 
         let employers;
         if (searchTerm) {
-            // Si hay un término de búsqueda, realizar una búsqueda completa
             employers = await Employer.find({ 'Employer Name': { $regex: new RegExp(searchTerm, 'i') } });
         } else {
-            // Si no hay un término de búsqueda, realizar la paginación normal
             const startIndex = (page - 1) * limitPerPage;
 
             employers = await Employer.aggregate([
@@ -29,7 +24,7 @@ const mostrar = async (req, res) => {
         const totalPages = Math.ceil(totalEmployers / limitPerPage);
 
         const infoPath = path.join(__dirname, '../views/info.ejs');
-        res.render(infoPath, { employers: employers, totalPages: totalPages, currentPage: page });
+        res.render('info', { employers: employers, totalPages: totalPages, currentPage: page });
     } catch (error) {
         console.error('Error al obtener los empleadores:', error);
         res.status(500).json({ message: 'Error al obtener los empleadores' });

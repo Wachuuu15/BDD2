@@ -12,31 +12,57 @@
   <body>
     <div class="container">
     <div class="form-box">
-      <h1>Sign Up</h1>
+      <h1 id="title" >Sign Up</h1>
       <form>
         <div class="input-group">
-          <div class="input-field">
+          <div class="input-field" id="nameField">
             <i class="fa-solid fa-user"></i>
             <input type="text" placeholder="User Name">
           </div>
 
-          <div class="input-field">
+          <div class="input-field" id="password">
             <i class="fa-solid fa-lock"></i>
             <input type="password" placeholder="Password">
           </div>
 
-          <div class="input-field">
+          <div class="input-field" id="confirmPass">
             <i class="fa-solid fa-lock"></i>
             <input type="password" placeholder="Confirm Password">
           </div>
+          <p>Lost Password <a href="#">Click Here!</a></p>
+        </div>
 
+        <div class="btn-field">
+          <button type="button" id="signUpBtn"> Sign Up</button>
+          <button type="button" id="signInBtn" class="disable"> Sign In</button>
 
         </div>
       </form>
     </div>
     </div>
+    <script>
+      let signUpBtn = document.getElementById("signUpBtn")
+      let signInBtn = document.getElementById("signInBtn")
+      let nameField = document.getElementById("nameField")
+      let title = document.getElementById("title")
+      
+      signInBtn.onclick = function() {
+        nameField.style.maxHeight = "0";
+        title.innerHTML = "Sign In";
+        signUpBtn.classList.add("disable");
+        signInBtn.classList.remove("disable");
+      }
 
+            
+      signUpBtn.onclick = function() {
+        nameField.style.maxHeight = "60px";
+        title.innerHTML = "Sign Up";
+        signUpBtn.classList.remove("disable");
+        signInBtn.classList.add("disable");
 
+      }
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -10,35 +10,30 @@ const crear = async (req, res) => {
     }
 
     try {
-        // Verificar si el nombre de usuario ya existe en la base de datos
         const existingUser = await User.findOne({ username: username });
         if (existingUser) {
             return res.status(400).send('El nombre de usuario ya está en uso');
         }
 
-        // Si el nombre de usuario no existe, crear un nuevo usuario
-        const newUser = new User({
-            _id: new mongoose.Types.ObjectId(), // Genera un nuevo ObjectId
-            username: username,
-            password: password,
-            confirmPassword: confirmPassword
-        });
-
-        // Guardar el nuevo usuario en la base de datos
-        await newUser.save();
-
-        // Crear un perfil asociado al usuario
         const newProfile = new Profile({
-            name: 'Nombre predeterminado', // Puedes cambiar esto según tus necesidades
-            age: 18, // Edad predeterminada, puedes cambiarla según tus necesidades
-            email: 'example@example.com', // Correo electrónico predeterminado, puedes cambiarlo según tus necesidades
-            dir: 'Dirección predeterminada', // Dirección predeterminada, puedes cambiarla según tus necesidades
-            isAdmin: false // Por defecto, el nuevo usuario no es un administrador, puedes cambiarlo según tus necesidades
+            name: 'Maria',
+            age: 18,
+            email: 'example@example.com',
+            dir: 'Dirección predeterminada',
+            isAdmin: false
         });
-
-        newUser.profile = newProfile;
 
         await newProfile.save();
+
+        const newUser = new User({
+            _id: new mongoose.Types.ObjectId(),
+            username: username,
+            password: password,
+            confirmPassword: confirmPassword,
+            profile: newProfile._id 
+        });
+
+        await newUser.save();
 
         res.redirect('/index');
     } catch (error) {

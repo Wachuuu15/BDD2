@@ -6,10 +6,6 @@ const profileSchema = new Schema({
     age: Number,
     email: String,
     dir: String,
-    isAdmin: {
-        type: Boolean,
-        default: false
-    }
 });
 
 const Profile = mongoose.model('Profile', profileSchema,'Profile');

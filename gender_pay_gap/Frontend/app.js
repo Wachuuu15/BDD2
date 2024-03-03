@@ -23,18 +23,6 @@ app.get('/index', (req, res) => {
 
 app.use('/', employersRouter);
 
-app.get('/info', (req, res) => {
-    res.render('info');
-}); 
-
-
-app.post('/signup', (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    const confirmPassword = req.body.confirmPassword;
-    res.redirect('index');
-}); 
-
 app.listen(3000, () => {
     console.log('Servidor conectado en http://localhost:3000');
 });

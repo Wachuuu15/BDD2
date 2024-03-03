@@ -4,27 +4,29 @@ const Employer = require('../model/employer');
 const mostrar = async (req, res) => {
     try {
         const searchTerm = req.query.search;
+        const sortBy = req.query.sortBy || 'default'; // Por defecto, no se ordena
+        const sortOrder = req.query.sortOrder || 'asc'; // Por defecto, orden ascendente
 
-        const limitPerPage = 20; 
+        const limitPerPage = 20;
         const page = parseInt(req.query.page) || 1;
 
         let employers;
         if (searchTerm) {
-            employers = await Employer.find({ 'Employer Name': { $regex: new RegExp(searchTerm, 'i') } });
+            employers = await Employer.find({ 'Employer Name': { $regex: new RegExp(searchTerm, 'i') } })
+                                        .sort({ [sortBy]: sortOrder }); // Aplicar ordenamiento si es necesario
         } else {
             const startIndex = (page - 1) * limitPerPage;
 
-            employers = await Employer.aggregate([
-                { $skip: startIndex }, 
-                { $limit: limitPerPage }
-            ]);
+            employers = await Employer.find()
+                                      .skip(startIndex)
+                                      .limit(limitPerPage)
+                                      .sort({ [sortBy]: sortOrder }); // Aplicar ordenamiento si es necesario
         }
 
         const totalEmployers = await Employer.countDocuments();
         const totalPages = Math.ceil(totalEmployers / limitPerPage);
 
-        const infoPath = path.join(__dirname, '../views/info.ejs');
-        res.render('info', { employers: employers, totalPages: totalPages, currentPage: page });
+        res.render('info', { employers: employers || [], totalPages: totalPages, currentPage: page });
     } catch (error) {
         console.error('Error al obtener los empleadores:', error);
         res.status(500).json({ message: 'Error al obtener los empleadores' });

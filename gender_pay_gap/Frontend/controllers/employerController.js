@@ -132,7 +132,7 @@ const borrar = async (req, res) => {
             return res.status(404).json({ message: 'No se encontró el empleador para borrar' });
         }
 
-        res.redirect('/');
+        res.redirect('/info');
     } catch (error) {
         console.error('Error eliminando al empleador:', error);
         res.status(500).send('Error eliminando al empleador');

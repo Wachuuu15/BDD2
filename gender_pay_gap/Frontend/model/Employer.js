@@ -1,5 +1,11 @@
 const mongoose = require('mongoose');
 
+const employeeSchema = new mongoose.Schema({
+    name: String,
+    position: String,
+    salary: Number
+});
+
 const employerSchema = new mongoose.Schema({
     'Employer Name': String,
     'Address': String,
@@ -23,7 +29,8 @@ const employerSchema = new mongoose.Schema({
     'Employer Size': String,
     'Current Name': String,
     'Submitted After The Deadline': Boolean,
-    company_id: Number
+    company_id: Number,
+    employees: [employeeSchema]
 })
 
 const Employer = mongoose.model('Employer', employerSchema, 'Employer');

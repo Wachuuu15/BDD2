@@ -16,5 +16,9 @@ router.get('/search', employerController.search);
 //Ruta create POST
 router.post('/signup', userController.crear);
 
+router.get('/report', (req, res) => {
+    res.render('report');
+});
+
 
 module.exports = router;

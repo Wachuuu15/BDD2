@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Charts</title>
+    <!-- Importa la biblioteca ChartsEmbedSDK -->
+    <script src="https://unpkg.com/@mongodb-js/charts-embed-dom"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/chart.css"
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <b>GOV.UK</b>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+       
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/index">Register<span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/info">Employers Info</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="/report">Report</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Language
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">English</a>
+                      <a class="dropdown-item" href="#">Español</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+        
+    <style>
+        body{
+            background-color: #f6e5cb;
+        }
+        .container{
+            margin-top: 10px;
+            max-width: 960px;
+        }
+
+        .container-title-info{
+            display: flex;
+            justify-content: center;
+
+            margin-bottom: 10px;
+        }
+
+        .navbar{
+            background-color: #d76483;
+        }
+
+        .btnContainer{
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-save {
+            padding: 5px 10px; /* Agrega padding de 5px arriba y abajo, y 10px a los lados */
+        }
+
+        .bi-save {
+            margin-right: 10px; /* Añade 5px de margen a la derecha de la figura */
+        }
+
+        .row{
+            margin-bottom: 10px;
+        }
+
+        .form-label{
+            margin-bottom: 0px;
+        }
+
+        .dropdown-menu {
+            margin-left: -50px; 
+        }
+
+        .btn-save{
+            background-color: #ef9ca4;
+            width: 200px;
+        }
+
+        .btn-save:hover{
+            background-color: #a3a09f;
+            color: #d76483;
+            font-weight: bold;
+        }
+    </style>
+    
+    <style>
+        #chart1, #chart2, #chart3 {
+            position: center;
+            width: 400px; 
+            height: 300px; 
+            margin-bottom: 20px;
+        }
+    </style>
+
+    </head>
+    <div id="chart1">
+        <div style="position:absolute"></div>
+    </div>
+    <br>
+    <br>
+    <div id="chart2"></div>
+    <br>
+    <br>
+    <div id="chart3"></div>
+
+    <script>
+        const sdk = new ChartsEmbedSDK({
+            baseUrl: 'https://charts.mongodb.com/charts-project-0-triyu',
+        });
+
+        const chart1 = sdk.createChart({
+            chartId: '65e4c59e-8ad7-415e-84f6-7a30b85e290d',
+        });
+
+        chart1.render(document.getElementById('chart1'))
+            .catch(() => window.alert('Chart 1 failed to initialize'));
+
+        const chart2 = sdk.createChart({
+            chartId: '65e4c799-865d-49b6-8118-dc01b64aa6e4',
+        });
+
+        chart2.render(document.getElementById('chart2'))
+            .catch(() => window.alert('Chart 2 failed to initialize'));
+
+        const chart3 = sdk.createChart({
+            chartId: '65e4c645-f69b-4902-852f-f0e3eede0ddb',
+        });
+
+        chart3.render(document.getElementById('chart3'))
+            .catch(() => window.alert('Chart 3 failed to initialize'));
+    </script>
+</body>
+</html>

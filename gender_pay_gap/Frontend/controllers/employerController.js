@@ -4,23 +4,26 @@ const Employer = require('../model/employer');
 const mostrar = async (req, res) => {
     try {
         const searchTerm = req.query.search;
-        const sortBy = req.query.sortBy || 'default'; // Por defecto, no se ordena
-        const sortOrder = req.query.sortOrder || 'asc'; // Por defecto, orden ascendente
+        const sortBy = req.query.sortBy || 'default'; 
+        const sortOrder = req.query.sortOrder || 'asc'; 
 
         const limitPerPage = 20;
         const page = parseInt(req.query.page) || 1;
 
         let employers;
         if (searchTerm) {
-            employers = await Employer.find({ 'Employer Name': { $regex: new RegExp(searchTerm, 'i') } })
-                                        .sort({ [sortBy]: sortOrder }); // Aplicar ordenamiento si es necesario
+            employers = await Employer.aggregate([
+                { $match: { 'Employer Name': { $regex: new RegExp(searchTerm, 'i') } } },
+                { $sort: { [sortBy]: sortOrder === 'asc' ? 1 : -1 } }
+            ]);
         } else {
             const startIndex = (page - 1) * limitPerPage;
 
-            employers = await Employer.find()
-                                      .skip(startIndex)
-                                      .limit(limitPerPage)
-                                      .sort({ [sortBy]: sortOrder }); // Aplicar ordenamiento si es necesario
+            employers = await Employer.aggregate([
+                { $sort: { [sortBy]: sortOrder === 'asc' ? 1 : -1 } },
+                { $skip: startIndex },
+                { $limit: limitPerPage }
+            ]);
         }
 
         const totalEmployers = await Employer.countDocuments();
